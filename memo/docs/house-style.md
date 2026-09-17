@@ -1,7 +1,7 @@
 # House style (Step 4)
 
 This skill renders in the **KT CRE Design System**. `memo.css` is a downstream
-consumer of `the KT Design System tokens (`../tokens/tokens.json`)` — every hex in it comes from
+consumer of the KT tokens (`../tokens/tokens.json`) — every hex in it comes from
 that file. Do not introduce a colour that is not there.
 
 To re-skin, edit the accent tokens at the top of `memo.css`

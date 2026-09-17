@@ -38,6 +38,6 @@ If an extracted figure reads `null` where the workbook shows a number, the file 
 | `extract_workbook.py` | Maps every sheet: tables, labeled scalars, formulas, and an A1 trace for each value. |
 | `verify_memo.py` | Reopens the workbook and checks every bound figure, token, exhibit order and the BLUF length. |
 | `render_memo.py` | Substitutes figures, builds exhibits and schedules, and prints the PDF through headless Chromium with the repeating band and footer. |
-| `memo_template.html`, `memo.css` | Page structure and print styles, using the KT Design System tokens. |
+| `memo_template.html`, `memo.css` | Page structure and print styles, using the KT tokens. |
 | `fonts/` | Open Sans and Inconsolata (SIL Open Font License), used when Segoe UI and Consolas are not installed. |
 | `docs/` | Memo structure, house style, workbook reading and the pre-delivery QA checklist. |
