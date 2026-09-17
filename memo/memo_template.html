@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ meta.re }}</title>
+<link rel="stylesheet" href="memo.css">
+</head>
+<body>
+
+{% if meta.classification %}<div class="classbar">{{ meta.classification }}</div>{% endif %}
+<div class="letterhead">
+  <div class="lockup">
+    <div class="mark">{{ meta.mark }}</div>
+    <div class="wordmark">{{ meta.org }}</div>
+  </div>
+  <div class="addr">
+    {{ meta.address_line1 }}<br>
+    {{ meta.address_line2 }}{% if meta.web %} · {{ meta.web }}{% endif %}
+  </div>
+</div>
+<hr class="rule-accent">
+
+<div class="eyebrow docclass">{{ meta.doc_class }}</div>
+<h1 class="title">{{ meta.re }}</h1>
+
+<div class="meta">
+  <div><span class="k">To</span><span class="v">{{ meta.to }}</span></div>
+  <div><span class="k">From</span><span class="v">{{ meta.from }}</span></div>
+  <div><span class="k">Date</span><span class="v ref">{{ meta.date }}</span></div>
+  <div><span class="k">Ref</span><span class="v ref">{{ meta.ref }}</span></div>
+</div>
+
+{% if bluf %}
+<div class="bluf">
+  <span class="eyebrow">Bottom line</span>
+  <p>{{ bluf }}</p>
+</div>
+{% endif %}
+
+{% if kpis %}
+<div class="kpis">
+  {% for k in kpis %}
+  <div class="kpi"><span class="v">{{ k.value }}</span><span class="l">{{ k.label }}</span></div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if ask %}
+<div class="ask">
+  <span class="eyebrow">Decision requested</span>
+  <p>{{ ask.action }}</p>
+  <dl>
+    {% if ask.amount %}<dt>Amount</dt><dd class="num">{{ ask.amount }}</dd>{% endif %}
+    {% if ask.owner %}<dt>Owner</dt><dd>{{ ask.owner }}</dd>{% endif %}
+    {% if ask.due %}<dt>By</dt><dd class="num">{{ ask.due }}</dd>{% endif %}
+  </dl>
+</div>
+{% endif %}
+
+{% for s in sections %}
+<h2 class="section">{% if s.n %}<span class="n">{{ s.n }}</span>{% endif %}{{ s.heading }}</h2>
+{% for p in s.paragraphs %}<p>{{ p }}</p>{% endfor %}
+{% if s.bullets %}
+<ul class="tight">{% for b in s.bullets %}<li>{{ b }}</li>{% endfor %}</ul>
+{% endif %}
+{% for ex in s.exhibits %}{{ ex }}{% endfor %}
+{% endfor %}
+
+{% if reconciliation %}
+<div class="recon">
+  <span class="eyebrow">Unreconciled in source workbook</span>
+  <ul>{% for r in reconciliation %}<li><strong>{{ r.issue }}</strong> — {{ r.detail }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+{% if risks %}
+<h2 class="section">Risks and responses</h2>
+<table class="risks">
+  <tr><th>Risk</th><th>Response</th></tr>
+  {% for r in risks %}<tr><td>{{ r.risk }}</td><td>{{ r.response }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+
+{% for ex in loose_exhibits %}{{ ex }}{% endfor %}
+
+{% if attest %}
+<div class="attest">
+  <span class="eyebrow">Prepared and reviewed</span>
+  <div class="grid">
+    {% for a in attest %}
+    <div><div class="sig"></div><div class="nm">{{ a.name }}</div>
+      <div class="cap">{{ a.role }}{% if a.date %} · {{ a.date }}{% endif %}</div></div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+{% if traces %}
+<div class="traceindex">
+  <h2 class="section">Appendix — figure trace index</h2>
+  <p class="lede">Every figure in this memo resolves to a cell in
+    <span class="num">{{ source_file }}</span>, verified at render time.
+    No figure in the body was typed by hand.</p>
+  <table>
+    <thead><tr><th></th><th>Figure</th><th>Source cell</th><th style="text-align:right">Value</th></tr></thead>
+    <tbody>{% for t in traces %}
+    <tr><td class="k">{{ t.mark }}</td><td>{{ t.label }}</td>
+        <td class="c">{{ t.trace }}</td><td class="v">{{ t.value }}</td></tr>
+    {% endfor %}</tbody>
+  </table>
+</div>
+{% endif %}
+
+</body>
+</html>

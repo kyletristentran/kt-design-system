@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KT Design System</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../css/tokens.css">
 <link rel="stylesheet" href="../css/kt.css">
 <style>
@@ -220,6 +220,130 @@
 </div>
 </div>
 <p class="doc"><a href="../docs/components/CredentialCard.md">Guidelines</a></p></section>
+<h2 class="kt-title kt-title--sm" style="margin:40px 0 16px">Documents</h2>
+<section class="demo" id="MemoHeader"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">MemoHeader</span></div>
+<div class="p"><div class="kt-paper">
+  <div class="kt-classbar">Privileged and confidential</div>
+  <div class="kt-letterhead">
+    <span class="kt-lockup"><span class="kt-mark">KT</span><span class="kt-wordmark">KTFORD</span></span>
+    <div class="kt-letterhead__addr">1801 Century Park East, Suite 1400<br>Los Angeles, CA 90067 · ktford.com</div>
+  </div>
+  <hr class="kt-rule-accent">
+  <div class="kt-eyebrow">Investment committee package</div>
+  <h1 class="kt-memo-title">Mesa Ridge Industrial Park: repositioning capital request</h1>
+  <div class="kt-meta">
+    <div><span class="kt-meta__k">To</span><span class="kt-meta__v">Investment Committee</span></div>
+    <div><span class="kt-meta__k">From</span><span class="kt-meta__v">Asset Management</span></div>
+    <div><span class="kt-meta__k">Date</span><span class="kt-meta__v kt-meta__v--mono">2026-08-05</span></div>
+    <div><span class="kt-meta__k">Ref</span><span class="kt-meta__v kt-meta__v--mono">CR-26-0118</span></div>
+  </div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/MemoHeader.md">Guidelines</a></p></section><section class="demo" id="BottomLine"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">BottomLine</span></div>
+<div class="p"><div class="kt-paper" style="display:flex;flex-direction:column;gap:13pt">
+  <div class="kt-bluf"><span class="kt-eyebrow">Bottom line</span>
+    <p>Approve <span class="kt-fig">$2,450,000</span> to reposition Mesa Ridge Industrial Park. The plan reaches stabilized NOI of <span class="kt-fig">$3,402,000</span> on a <span class="kt-fig">6.2%</span> going-in cap and returns capital in <span class="kt-fig">31</span> months.</p></div>
+  <div class="kt-tiles">
+    <div class="kt-tile"><span class="kt-tile__v">$2,450,000</span><span class="kt-tile__l">Capital requested</span></div>
+    <div class="kt-tile"><span class="kt-tile__v">31</span><span class="kt-tile__l">Payback (months)</span></div>
+    <div class="kt-tile"><span class="kt-tile__v">$3,402,000</span><span class="kt-tile__l">Stabilized NOI</span></div>
+    <div class="kt-tile"><span class="kt-tile__v">18.6%</span><span class="kt-tile__l">5-year IRR</span></div>
+  </div>
+  <div class="kt-ask"><span class="kt-eyebrow">Decision requested</span>
+    <p>Approve the repositioning budget and authorize the general contractor award.</p>
+    <dl><dt>Amount</dt><dd class="kt-mono">$2,450,000</dd><dt>Owner</dt><dd>Asset Management</dd><dt>By</dt><dd class="kt-mono">2026-09-30</dd></dl>
+  </div>
+  <p class="kt-exhibit__note">FICTITIOUS DATA</p>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/BottomLine.md">Guidelines</a></p></section><section class="demo" id="MemoSection"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">MemoSection</span></div>
+<div class="p"><div class="kt-paper">
+  <h2 class="kt-memo-section"><span class="kt-memo-section__n">01</span>Occupancy and rent drive the return</h2>
+  <p>Mesa Ridge is <span class="kt-fig">84,000</span> rentable square feet at <span class="kt-fig">78.0%</span> occupancy. The repositioning takes occupancy to <span class="kt-fig">93.0%</span> and base rent from <span class="kt-fig">$37.50</span> to <span class="kt-fig">$44.29</span> per square foot.</p>
+  <p class="kt-exhibit__note">FICTITIOUS DATA</p>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/MemoSection.md">Guidelines</a></p></section><section class="demo" id="Exhibit"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Exhibit</span></div>
+<div class="p"><div class="kt-paper">
+<div class="kt-exhibit">
+  <div class="kt-exhibit__cap"><span class="kt-exhibit__t"><span class="kt-exhibit__id">Exhibit D</span> · Stabilized NOI sensitivity</span><span class="kt-exhibit__src">Scenarios!B4:E7</span></div>
+  <table class="kt-data">
+    <thead><tr><th>Scenario</th><th class="n">Revenue</th><th class="n">NOI</th><th class="n">Payback (mo)</th></tr></thead>
+    <tbody>
+      <tr><td>Downside</td><td class="n">$3,960,000</td><td class="n">$2,910,000</td><td class="n">48</td></tr>
+      <tr><td>Base</td><td class="n">$4,465,000</td><td class="n">$3,402,000</td><td class="n">31</td></tr>
+      <tr><td>Upside</td><td class="n">$4,760,000</td><td class="n">$3,735,000</td><td class="n">24</td></tr>
+      <tr class="total"><td>Change, base to downside</td><td class="n neg">($505,000)</td><td class="n neg">($492,000)</td><td class="n">17</td></tr>
+    </tbody>
+  </table>
+  <div class="kt-bars">
+    <div class="kt-bars__row"><div class="kt-bars__lab">Downside</div><div class="kt-bars__track"><div class="kt-bars__fill" style="width:77.9%"></div></div><div class="kt-bars__val">$2,910,000</div></div>
+    <div class="kt-bars__row"><div class="kt-bars__lab">Base</div><div class="kt-bars__track"><div class="kt-bars__fill" style="width:91.1%"></div></div><div class="kt-bars__val">$3,402,000</div></div>
+    <div class="kt-bars__row"><div class="kt-bars__lab">Upside</div><div class="kt-bars__track"><div class="kt-bars__fill" style="width:100%"></div></div><div class="kt-bars__val">$3,735,000</div></div>
+  </div>
+  <div class="kt-exhibit__note">NOI · source: Scenarios!B4:E7 · FICTITIOUS DATA</div>
+</div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Exhibit.md">Guidelines</a></p></section><section class="demo" id="Schedule"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Schedule</span></div>
+<div class="p"><div class="kt-paper" style="max-width:none">
+  <div class="kt-exhibit__t"><span class="kt-exhibit__id">Exhibit E</span> · Tenant cash flow, Unit 300, monthly</div>
+  <div class="kt-sched-lines">Mesa Ridge Industrial Park · amounts in USD · FICTITIOUS DATA</div>
+  <div style="overflow-x:auto">
+  <table class="kt-sched">
+    <thead><tr><th class="lab">For the months</th><th>Jan-26</th><th>Feb-26</th><th>Mar-26</th><th>Apr-26</th><th>May-26</th><th>Jun-26</th><th class="tot">Total</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td class="lab">Rental revenue</td><td colspan="7"></td></tr>
+      <tr class="detail"><td class="lab">Base rent</td><td>0</td><td>0</td><td>11,458</td><td>11,458</td><td>11,458</td><td>11,458</td><td class="tot">45,832</td></tr>
+      <tr class="detail zebra"><td class="lab">Free rent</td><td>0</td><td>0</td><td class="neg">(11,458)</td><td class="neg">(11,458)</td><td>0</td><td>0</td><td class="tot neg">(22,916)</td></tr>
+      <tr class="sub"><td class="lab">Total rental revenue</td><td>0</td><td>0</td><td>0</td><td>0</td><td>11,458</td><td>11,458</td><td class="tot">22,916</td></tr>
+      <tr class="grp"><td class="lab">Leasing costs</td><td colspan="7"></td></tr>
+      <tr class="detail"><td class="lab">Tenant improvements</td><td>0</td><td>0</td><td class="neg">(93,750)</td><td>0</td><td>0</td><td>0</td><td class="tot neg">(93,750)</td></tr>
+      <tr class="net"><td class="lab">Net tenant cash flow</td><td>0</td><td>0</td><td class="neg">(93,750)</td><td>0</td><td>11,458</td><td>11,458</td><td class="tot neg">(70,834)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="kt-sched-note">Results displayed are based on forecast data only.</div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Schedule.md">Guidelines</a></p></section><section class="demo" id="Reconciliation"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Reconciliation</span></div>
+<div class="p"><div class="kt-paper" style="display:flex;flex-direction:column;gap:13pt">
+  <div class="kt-recon"><span class="kt-eyebrow">Unreconciled in source workbook</span>
+    <ul><li><strong>Stabilized NOI does not agree across tabs.</strong> Summary carries <span class="kt-fig">$3,402,000</span>; the Property P&amp;L computes <span class="kt-fig">$3,508,000</span> in Year 3. This memo uses the Summary figure, the more conservative of the two.</li></ul>
+  </div>
+  <table class="kt-risks">
+    <thead><tr><th>Risk</th><th>Response</th></tr></thead>
+    <tbody><tr><td>Lease-up runs slower than plan and stabilized occupancy arrives a year late.</td><td>The downside case prices this: payback extends to <span class="kt-fig">48</span> months and coverage stays above covenant.</td></tr></tbody>
+  </table>
+  <p class="kt-exhibit__note">FICTITIOUS DATA</p>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Reconciliation.md">Guidelines</a></p></section><section class="demo" id="Attestation"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Attestation</span></div>
+<div class="p"><div class="kt-paper" style="display:flex;flex-direction:column;gap:13pt">
+  <div class="kt-attest"><span class="kt-eyebrow">Prepared and reviewed</span>
+    <div class="kt-attest__grid">
+      <div><div class="kt-attest__sig"></div><div class="kt-attest__nm">Asset Management</div><div class="kt-attest__cap">Prepared by · 2026-08-05</div></div>
+      <div><div class="kt-attest__sig"></div><div class="kt-attest__nm">Investment Committee</div><div class="kt-attest__cap">Approved by</div></div>
+    </div>
+  </div>
+  <table class="kt-trace">
+    <thead><tr><th></th><th>Figure</th><th>Source cell</th><th class="v">Value</th></tr></thead>
+    <tbody>
+      <tr><td class="k">1</td><td>Requested capital</td><td class="c">Summary!C5</td><td class="v">$2,450,000</td></tr>
+      <tr><td class="k">2</td><td>Stabilized NOI (Summary)</td><td class="c">Summary!C7</td><td class="v">$3,402,000</td></tr>
+      <tr><td class="k">3</td><td>Going-in cap rate</td><td class="c">Summary!C9</td><td class="v">6.2%</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Attestation.md">Guidelines</a></p></section><section class="demo" id="PageFrame"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">PageFrame</span></div>
+<div class="p"><div class="kt-paper">
+  <div class="kt-band">Investment committee package · Mesa Ridge Industrial Park</div>
+  <p style="color:var(--ink-muted)">Continuation pages carry the band and footer only. The letterhead appears on page one.</p>
+  <div class="kt-footer"><span>Confidential, internal distribution only · FICTITIOUS DATA · CR-26-0118</span><span>Page 2 of 7</span></div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/PageFrame.md">Guidelines</a></p></section>
   <p class="kt-source">Sample figures are FICTITIOUS DATA.</p>
 </div>
 <script>

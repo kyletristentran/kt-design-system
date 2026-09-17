@@ -1,0 +1,263 @@
+/* ============================================================
+   kt-corporate-memo — print stylesheet
+   Tokens: KT Design System (github.com/kyletristentran/kt-design-system),
+   Powder Blue accent. Thin accent marks on white paper use --accent-line. No hex below
+   appears that is not in that file. Re-skin by editing the
+   accent block only.
+   Layout structure follows the KT reference document: repeating
+   full-bleed band, eyebrow over title, hairline-ruled section
+   heads, ink-band tables, footer rule, bordered callout.
+   ============================================================ */
+
+/* Brand stack first — Segoe UI and Consolas are present on the Office
+   machines these documents are read on. The bundled faces are the
+   fallback so a Linux/CI render still looks right. */
+@font-face{font-family:"KT Sans";src:url("fonts/sans-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:"KT Sans";src:url("fonts/sans-400i.woff2") format("woff2");font-weight:400;font-style:italic;font-display:block}
+@font-face{font-family:"KT Sans";src:url("fonts/sans-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:block}
+@font-face{font-family:"KT Sans";src:url("fonts/sans-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:block}
+@font-face{font-family:"KT Mono";src:url("fonts/mono-400.woff2") format("woff2");font-weight:400;font-display:block}
+@font-face{font-family:"KT Mono";src:url("fonts/mono-700.woff2") format("woff2");font-weight:700;font-display:block}
+
+:root{
+  /* neutral ramp */
+  --ink:#242424; --secondary:#424242; --muted:#616161; --label:#707070;
+  --rule-strong:#D1D1D1; --border:#E0E0E0; --fill:#F5F5F5; --canvas:#FAFAFA; --white:#FFFFFF;
+  /* accent — swap these to re-skin */
+  --accent-deep:#3E6A8A; --accent:#B6D0E2; --accent-line:#6B97B8; --accent-tint:#D3E3EE; --accent-wash:#EEF4F9;
+  /* semantic — status only, never brand */
+  --positive:#0E700E; --caution:#A16E00; --caution-text:#6E5A00; --negative:#B10E1C;
+
+  --sans:'Segoe UI','Segoe UI Web (West European)','Open Sans',-apple-system,BlinkMacSystemFont,'KT Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:Consolas,'Cascadia Mono','KT Mono','Courier New',monospace;
+
+  /* Compact density. The brand's 9pt floor governs the standard mode; a
+     financial package runs tighter on spacing than on type. Figures never go
+     below 8.5pt — a number the reader has to squint at is worse than a
+     second page. Density is bought from padding and leading, not legibility. */
+  --fs-body:10pt; --fs-small:9.5pt; --fs-min:8.5pt; --fs-sched:8.5pt;
+  --sp-1:3pt; --sp-2:6pt; --sp-3:9pt; --sp-4:13pt; --sp-5:18pt;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--sans); font-size:var(--fs-body); line-height:1.45; color:var(--ink);
+  background:var(--white); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+p{margin:0 0 var(--sp-2); orphans:3; widows:3; max-width:none}
+strong{font-weight:700}
+
+/* ---------- shared atoms ---------- */
+.eyebrow{font-size:var(--fs-min); font-weight:700; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--label)}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+/* Mono is for columns that must align — tables, tiles, meta values, the index.
+   The CRE rule's stated reason is column alignment, and running prose has no
+   column, so a bound figure in a sentence keeps the body face and earns its
+   emphasis from weight instead. Matches the reference document. */
+.fig{font-variant-numeric:tabular-nums; font-weight:600}
+.trace{font-family:var(--mono); font-size:var(--fs-min); font-weight:700;
+  color:var(--accent-deep); vertical-align:super; line-height:0; margin-left:1pt}
+
+/* ---------- letterhead (page one only, in flow) ---------- */
+.letterhead{display:flex; justify-content:space-between; align-items:flex-start;
+  margin:0 0 var(--sp-2)}
+.lockup{display:flex; align-items:center; gap:9pt}
+.mark{width:26pt; height:26pt; background:var(--ink); color:var(--white);
+  font-weight:700; font-size:11pt; letter-spacing:.04em;
+  display:flex; align-items:center; justify-content:center; border-radius:0; position:relative}
+.mark::after{content:""; position:absolute; left:0; bottom:0;
+  width:100%; height:2.6pt; background:var(--accent)}   /* 10% of mark height */
+.wordmark{font-size:15pt; font-weight:700; letter-spacing:-.01em; color:var(--ink)}
+.addr{text-align:right; font-size:var(--fs-min); color:var(--label); line-height:1.5}
+.rule-accent{height:3pt; background:var(--accent-line); border:0; margin:0 0 var(--sp-3)}
+
+.docclass{margin:0 0 var(--sp-1)}
+h1.title{font-size:15pt; font-weight:700; line-height:1.2; letter-spacing:-.01em;
+  margin:0 0 var(--sp-3); color:var(--ink); text-wrap:balance}
+
+/* ---------- meta grid: To / From / Date / Ref ---------- */
+.meta{display:grid; grid-template-columns:repeat(4,1fr); gap:0 14pt;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  padding:var(--sp-2) 0; margin:0 0 var(--sp-4)}
+.meta .k{font-size:var(--fs-min); font-weight:700; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--label); display:block; margin-bottom:2pt}
+.meta .v{font-size:var(--fs-small); color:var(--ink)}
+.meta .v.ref{font-family:var(--mono)}
+
+/* ---------- BLUF ---------- */
+.bluf{border-left:3pt solid var(--accent-line); padding:1pt 12pt 1pt 12pt;
+  margin:0 0 var(--sp-4); break-inside:avoid}
+.bluf .eyebrow{display:block; margin-bottom:var(--sp-1)}
+.bluf p{font-size:11pt; line-height:1.4; margin:0; max-width:none}
+
+/* ---------- KPI tiles — ink rule, not accent (budget) ---------- */
+.kpis{display:grid; grid-auto-flow:column; grid-auto-columns:1fr; gap:14pt;
+  margin:0 0 var(--sp-4); break-inside:avoid}
+.kpi{border-top:2pt solid var(--ink); padding:6pt 0 0}
+.kpi .v{font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:13.5pt; font-weight:700; display:block; line-height:1.15; color:var(--ink)}
+.kpi .l{font-size:var(--fs-min); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--label); display:block; margin-top:3pt}
+
+/* ---------- the ask — accent wash, ink type (never white on accent) ---------- */
+.ask{border:1px solid var(--rule-strong); border-left:3pt solid var(--accent-line);
+  padding:var(--sp-2) var(--sp-3); margin:0 0 var(--sp-4); break-inside:avoid;
+  border-radius:0}
+.ask .eyebrow{display:block; margin-bottom:var(--sp-1); color:var(--accent-deep)}
+.ask p{margin:0 0 var(--sp-2); color:var(--ink); max-width:none}
+.ask dl{display:grid; grid-template-columns:auto 1fr; gap:2pt 12pt; margin:0}
+.ask dt{font-size:var(--fs-min); font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--label); padding-top:1.5pt}
+.ask dd{margin:0; font-size:var(--fs-small); color:var(--ink)}
+
+/* ---------- sections: hairline-ruled heads ---------- */
+h2.section{font-size:11pt; font-weight:700; color:var(--ink); margin:var(--sp-5) 0 var(--sp-2);
+  padding-bottom:4pt; border-bottom:1px solid var(--border); break-after:avoid; text-wrap:balance}
+h2.section .n{color:var(--ink); font-size:11pt; margin-right:8pt; font-weight:700}
+ul.tight{margin:0 0 var(--sp-2); padding-left:15pt; max-width:none}
+ul.tight li{margin-bottom:3pt; padding-left:2pt}
+ul.tight li::marker{color:var(--label)}
+
+/* ---------- exhibits ---------- */
+/* An exhibit never splits. If it does not fit in the remaining space the whole
+   block moves to the next page — a table cut across a fold is harder to read
+   than a page with white at the bottom. Chromium still breaks a table that is
+   taller than one page, which is unavoidable. */
+.exhibit{margin:var(--sp-3) 0 var(--sp-4); break-inside:avoid}
+.exhibit .cap{display:flex; justify-content:space-between; align-items:baseline;
+  margin-bottom:6pt; break-after:avoid}
+.exhibit .cap .t{font-size:var(--fs-small); font-weight:700; color:var(--ink)}
+.exhibit .cap .t .id{color:var(--accent-deep)}
+.exhibit .cap .src{font-family:var(--mono); font-size:var(--fs-min); color:var(--label)}
+.exhibit .note{font-size:var(--fs-min); color:var(--label); margin-top:5pt}
+
+table.data{width:100%; table-layout:fixed; border-collapse:collapse; font-size:var(--fs-small)}
+table.data th:first-child, table.data td:first-child{width:34%}
+table.data thead{display:table-header-group}      /* repeats on every page spanned */
+table.data tr{break-inside:avoid}
+table.data th{background:var(--ink); color:var(--white); font-size:var(--fs-min);
+  font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  text-align:left; padding:4pt 7pt}
+table.data th.n{text-align:right}
+table.data td{padding:3.4pt 7pt; vertical-align:top; color:var(--ink)}
+table.data tbody tr:nth-child(even) td{background:var(--canvas)}
+table.data td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right}
+table.data tr.total{break-before:avoid}           /* a total never opens a page */
+table.data{break-inside:avoid}
+table.data tr.total td{font-weight:600; background:var(--fill);
+  border-top:2pt solid var(--ink)}
+table.data td.neg{color:var(--negative)}
+table.data td.pos{color:var(--positive)}
+
+/* CSS bar chart — single baseline, no gridlines, no gradient */
+.bars{margin-top:9pt; border-left:1px solid var(--ink); padding-left:0}
+.bars .row{display:grid; grid-template-columns:118pt 1fr 66pt; align-items:center;
+  gap:9pt; margin-bottom:4pt}
+.bars .lab{font-size:var(--fs-min); color:var(--secondary); text-align:right;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.bars .track{height:10pt; position:relative}
+.bars .fill{background:var(--accent-line); height:100%}
+.bars .val{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:var(--fs-min)}
+.bars .srcline{font-size:var(--fs-min); color:var(--label); margin-top:5pt}
+
+/* ---------- risks ---------- */
+table.risks{width:100%; border-collapse:collapse; font-size:var(--fs-small)}
+table.risks th{font-size:var(--fs-min); font-weight:700; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--label); text-align:left;
+  padding:5pt 12pt 5pt 0; border-bottom:1px solid var(--rule-strong)}
+table.risks td{padding:5pt 12pt 5pt 0; border-bottom:1px solid var(--border);
+  vertical-align:top; width:50%}
+
+/* ---------- reconciliation callout ----------
+   Semantic caution as border and type only — never a filled field
+   behind body copy. */
+.recon{border:1px solid var(--caution); border-left:3pt solid var(--caution);
+  border-radius:0; padding:var(--sp-2) var(--sp-3); margin:var(--sp-4) 0;
+  break-inside:avoid; background:var(--white)}
+.recon .eyebrow{color:var(--caution-text); display:block; margin-bottom:var(--sp-1)}
+.recon ul{margin:0; padding-left:15pt}
+.recon li{margin-bottom:4pt; font-size:var(--fs-small)}
+.recon li::marker{color:var(--caution)}
+
+/* ---------- trace index ---------- */
+.traceindex{break-before:page}
+.traceindex .lede{font-size:var(--fs-min); color:var(--muted); margin-bottom:var(--sp-3)}
+.traceindex table{width:100%; border-collapse:collapse; font-size:9pt}
+.traceindex th{background:var(--ink); color:var(--white); font-weight:700;
+  letter-spacing:.07em; text-transform:uppercase; text-align:left; padding:4pt 7pt}
+.traceindex td{padding:2.8pt 7pt; color:var(--ink)}
+.traceindex tr:nth-child(even) td{background:var(--canvas)}
+.traceindex td.k{font-family:var(--mono); font-weight:700; color:var(--accent-deep); width:24pt}
+.traceindex td.c{font-family:var(--mono); white-space:nowrap}
+.traceindex td.v{font-family:var(--mono); text-align:right; white-space:nowrap}
+
+/* ============================================================
+   SCHEDULES — the ARGUS report shape: a label column, right-aligned
+   value columns, grouped blocks with subtotals. One primitive serves
+   both a 13-period cash flow and a two-column profile comparison.
+   ============================================================ */
+
+@page { size: Letter portrait; margin: .78in .7in .62in .7in }
+@page wide { size: Letter landscape; margin: .6in .45in .5in .45in }
+
+/* A wide schedule takes its own landscape page; a narrow one stays in flow. */
+.sched-page{page:wide; break-before:page; break-after:page}
+.sched-page table.sched{break-inside:avoid}
+
+.sched-head{margin-bottom:5pt}
+.sched-head .ttl{font-size:var(--fs-small); font-weight:700; color:var(--ink)}
+.sched-head .ttl .id{color:var(--accent-deep)}
+.sched-head .lines{font-size:var(--fs-min); color:var(--label); margin-top:2pt;
+  font-family:var(--mono)}
+
+table.sched{width:100%; table-layout:fixed; border-collapse:collapse; font-size:var(--fs-sched);
+  font-family:var(--mono); font-variant-numeric:tabular-nums}
+table.sched thead{display:table-header-group}
+table.sched th{background:var(--ink); color:var(--white); font-family:var(--sans);
+  font-size:var(--fs-min); font-weight:700; padding:3.5pt 4pt; text-align:right;
+  white-space:nowrap}
+table.sched th.lab{text-align:left; width:128pt}
+table.sched th.tot{border-left:1px solid var(--rule-strong)}
+table.sched td{padding:2.3pt 4pt; text-align:right; white-space:nowrap; color:var(--ink)}
+table.sched td.lab{text-align:left; font-family:var(--sans); white-space:nowrap;
+  font-size:9pt}
+table.sched td.tot{border-left:1px solid var(--border); font-weight:700}
+table.sched tr{break-inside:avoid}
+
+/* row kinds */
+table.sched tr.grp td{font-family:var(--sans); font-size:var(--fs-min); font-weight:700;
+  color:var(--ink); padding-top:6pt; padding-bottom:2pt}
+table.sched tr.detail td.lab{padding-left:14pt; color:var(--secondary)}
+table.sched tr.sub td{border-top:1px solid var(--rule-strong); font-weight:600}
+table.sched tr.sub td.lab{padding-left:14pt}
+table.sched tr.net td{border-top:1.4pt solid var(--ink); border-bottom:1.4pt solid var(--ink);
+  font-weight:700; background:var(--fill)}
+table.sched tr.spacer td{padding:0; height:5pt}
+table.sched td.neg{color:var(--negative)}
+table.sched tr.zebra td{background:var(--canvas)}
+
+/* the trailing details block (lease dates, rent PSF, occupancy) */
+table.sched tr.dtl td{font-size:var(--fs-sched); color:var(--secondary)}
+table.sched tr.dtlhdr td{font-family:var(--sans); font-size:var(--fs-min); font-weight:700;
+  color:var(--ink); padding-top:7pt; border-top:1px solid var(--border)}
+
+.sched-note{font-size:var(--fs-min); color:var(--label); margin-top:4pt; font-style:italic}
+
+/* Few columns: pull the value columns in toward the labels. */
+table.sched.narrow{width:74%}
+table.sched.narrow th:not(.lab), table.sched.narrow td:not(.lab){width:100pt}
+
+/* ---------- corporate-legal register ---------- */
+.classbar{border-top:2pt solid var(--ink); border-bottom:1px solid var(--ink);
+  padding:3pt 0; margin:0 0 var(--sp-3); text-align:center;
+  font-size:var(--fs-min); font-weight:700; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--ink)}
+.attest{margin-top:var(--sp-5); padding-top:var(--sp-2);
+  border-top:1px solid var(--rule-strong); break-inside:avoid}
+.attest .eyebrow{display:block; margin-bottom:var(--sp-2)}
+.attest .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-4)}
+.attest .sig{border-bottom:1px solid var(--ink); height:26pt}
+.attest .cap{font-size:var(--fs-min); color:var(--label); margin-top:3pt}
+.attest .nm{font-size:var(--fs-small); color:var(--ink); font-weight:600}

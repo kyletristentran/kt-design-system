@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+_memo_render.html
+.DS_Store

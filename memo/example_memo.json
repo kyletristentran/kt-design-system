@@ -1,0 +1,953 @@
+{
+  "source_file": "mesa-ridge.xlsx",
+  "meta": {
+    "org": "KTFORD",
+    "mark": "KT",
+    "doc_class": "Investment committee package",
+    "to": "Investment Committee",
+    "from": "Asset Management",
+    "date": "2026-08-05",
+    "ref": "CR-26-0118",
+    "re": "Mesa Ridge Industrial Park \u2014 repositioning capital request",
+    "address_line1": "1801 Century Park East, Suite 1400",
+    "address_line2": "Los Angeles, CA 90067",
+    "web": "ktford.com",
+    "confidentiality": "Confidential \u2014 internal distribution only  \u00b7  FICTITIOUS DATA",
+    "classification": "Privileged and confidential"
+  },
+  "bluf": "Approve [[capital]] to reposition Mesa Ridge Industrial Park. The plan reaches stabilized NOI of [[noi_stab]] on a [[cap]] going-in cap, returns capital in [[payback]] months, and holds debt service coverage at [[dscr]].",
+  "ask": {
+    "action": "Approve the repositioning budget and authorize the general contractor award. Draw is staged against three construction milestones, not released in full at close.",
+    "amount_token": "capital",
+    "owner": "Asset Management",
+    "due": "2026-09-30"
+  },
+  "kpis": [
+    {
+      "token": "capital",
+      "label": "Capital requested"
+    },
+    {
+      "token": "payback",
+      "label": "Payback (months)"
+    },
+    {
+      "token": "noi_stab",
+      "label": "Stabilized NOI"
+    },
+    {
+      "token": "irr",
+      "label": "5-year IRR"
+    }
+  ],
+  "figures": {
+    "capital": {
+      "value": 2450000,
+      "kind": "currency",
+      "trace": "Summary!C5",
+      "label": "Requested capital"
+    },
+    "sf": {
+      "value": 84000,
+      "kind": "number",
+      "trace": "Summary!C6",
+      "label": "Rentable area (SF)"
+    },
+    "noi_stab": {
+      "value": 3402000,
+      "kind": "currency",
+      "trace": "Summary!C7",
+      "label": "Stabilized NOI (Summary)"
+    },
+    "payback": {
+      "value": 31,
+      "kind": "number",
+      "trace": "Summary!C8",
+      "label": "Payback period (months)"
+    },
+    "cap": {
+      "value": 0.062,
+      "kind": "percent",
+      "trace": "Summary!C9",
+      "label": "Going-in cap rate"
+    },
+    "dscr": {
+      "value": 1.42,
+      "kind": "multiple",
+      "trace": "Summary!C10",
+      "label": "Stabilized DSCR"
+    },
+    "irr": {
+      "value": 0.186,
+      "kind": "percent",
+      "trace": "Summary!C11",
+      "label": "Five-year IRR"
+    },
+    "noi_pl_y3": {
+      "value": 3508000,
+      "kind": "currency",
+      "trace": "Property P&L!E13",
+      "label": "Year 3 NOI (Property P&L)"
+    },
+    "rev_y1": {
+      "value": 3770000,
+      "kind": "currency",
+      "trace": "Property P&L!C7",
+      "label": "Year 1 total revenue"
+    },
+    "rev_y3": {
+      "value": 4465000,
+      "kind": "currency",
+      "trace": "Property P&L!E7",
+      "label": "Year 3 total revenue"
+    },
+    "noi_y1": {
+      "value": 2862000,
+      "kind": "currency",
+      "trace": "Property P&L!C13",
+      "label": "Year 1 NOI"
+    },
+    "tax_y1": {
+      "value": 410000,
+      "kind": "currency",
+      "trace": "Property P&L!C8",
+      "label": "Year 1 property taxes"
+    },
+    "rm_y1": {
+      "value": 218000,
+      "kind": "currency",
+      "trace": "Property P&L!C10",
+      "label": "Year 1 repairs and maintenance"
+    },
+    "rm_y3": {
+      "value": 198000,
+      "kind": "currency",
+      "trace": "Property P&L!E10",
+      "label": "Year 3 repairs and maintenance"
+    },
+    "rent_now": {
+      "value": 37.5,
+      "kind": "currency",
+      "trace": "Per SF!C5",
+      "label": "Base rent PSF, current"
+    },
+    "rent_plan": {
+      "value": 44.29,
+      "kind": "currency",
+      "trace": "Per SF!D5",
+      "label": "Base rent PSF, post-repositioning"
+    },
+    "opex_now": {
+      "value": 11.45,
+      "kind": "currency",
+      "trace": "Per SF!C6",
+      "label": "Operating expense PSF, current"
+    },
+    "opex_plan": {
+      "value": 11.39,
+      "kind": "currency",
+      "trace": "Per SF!D6",
+      "label": "Operating expense PSF, plan"
+    },
+    "noipsf_now": {
+      "value": 26.05,
+      "kind": "currency",
+      "trace": "Per SF!C7",
+      "label": "NOI PSF, current"
+    },
+    "noipsf_plan": {
+      "value": 32.9,
+      "kind": "currency",
+      "trace": "Per SF!D7",
+      "label": "NOI PSF, post-repositioning"
+    },
+    "occ_now": {
+      "value": 0.78,
+      "kind": "percent",
+      "trace": "Per SF!C8",
+      "label": "Occupancy, current"
+    },
+    "occ_plan": {
+      "value": 0.93,
+      "kind": "percent",
+      "trace": "Per SF!D8",
+      "label": "Occupancy, stabilized"
+    },
+    "down_noi": {
+      "value": 2910000,
+      "kind": "currency",
+      "trace": "Scenarios!D5",
+      "label": "Downside stabilized NOI"
+    },
+    "down_pb": {
+      "value": 48,
+      "kind": "number",
+      "trace": "Scenarios!E5",
+      "label": "Downside payback (months)"
+    },
+    "up_noi": {
+      "value": 3735000,
+      "kind": "currency",
+      "trace": "Scenarios!D7",
+      "label": "Upside stabilized NOI"
+    }
+  },
+  "sections": [
+    {
+      "heading": "The return comes from occupancy and rent, not from cutting expenses",
+      "paragraphs": [
+        "Mesa Ridge is [[sf]] rentable square feet running at [[occ_now]] occupancy. The repositioning takes occupancy to [[occ_plan]] and base rent from [[rent_now]] to [[rent_plan]] per square foot, lifting NOI per square foot from [[noipsf_now]] to [[noipsf_plan]].",
+        "Operating expense per square foot barely moves, from [[opex_now]] to [[opex_plan]]. That is deliberate. The plan does not assume a management or maintenance efficiency we have not already demonstrated at comparable assets, so none of the return depends on cost discipline that has yet to be proven here.",
+        "Both leasing profiles are held at their current market assumptions; Exhibit B shows them side by side so the committee can see exactly which inputs differ between the warehouse and flex units."
+      ],
+      "bullets": [
+        "Repairs and maintenance falls from [[rm_y1]] in Year 1 to [[rm_y3]] as deferred work clears \u2014 a consequence of the capital spend, not an assumed saving.",
+        "Property taxes are held at [[tax_y1]] in Year 1 with a reassessment assumed in Year 2; the assessor's schedule, not our estimate, drives that line."
+      ],
+      "exhibits": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "heading": "Operating statement and the return on capital",
+      "paragraphs": [
+        "Total revenue moves from [[rev_y1]] in Year 1 to [[rev_y3]] at stabilization, against NOI of [[noi_y1]] in the first year. Capital of [[capital]] returns in [[payback]] months, producing a five-year IRR of [[irr]] and a going-in cap rate of [[cap]].",
+        "Debt service coverage stabilizes at [[dscr]], which clears the lender covenant with room. The reimbursement line carries the most estimation risk, since it depends on the lease structures signed during lease-up rather than on anything currently in place."
+      ],
+      "exhibits": [
+        "C"
+      ]
+    },
+    {
+      "heading": "The downside still services debt",
+      "paragraphs": [
+        "On the downside case, stabilized NOI falls to [[down_noi]] and payback extends to [[down_pb]] months. Coverage holds above the covenant at that level, so the downside is a slower return rather than a default risk. The upside case reaches [[up_noi]].",
+        "The decision point is lease-up pace. If signed occupancy has not cleared the midpoint between current and stabilized by the end of month nine, the correct response is to hold rents and extend the lease-up window, not to discount to fill space.",
+        "Exhibit E walks a single representative lease month by month, so the shape of the leasing-cost drag in the commencement month is visible rather than buried in an annual total."
+      ],
+      "exhibits": [
+        "D",
+        "E"
+      ]
+    }
+  ],
+  "exhibits": [
+    {
+      "id": "A",
+      "title": "Per-square-foot economics, current versus post-repositioning",
+      "source": "Per SF!B4:E8",
+      "columns": [
+        "Metric",
+        "Current",
+        "Post-repositioning",
+        "Delta"
+      ],
+      "column_kinds": [
+        "text",
+        "currency",
+        "currency",
+        "currency"
+      ],
+      "rows": [
+        [
+          "Base rent PSF",
+          37.5,
+          44.29,
+          6.79
+        ],
+        [
+          "Operating expense PSF",
+          11.45,
+          11.39,
+          -0.06
+        ],
+        [
+          "NOI PSF",
+          26.05,
+          32.9,
+          6.85
+        ]
+      ],
+      "note": "Occupancy (78.0% current, 93.0% stabilized) is held on the source tab and excluded here so the column stays in dollars per square foot."
+    },
+    {
+      "id": "B",
+      "type": "schedule",
+      "title": "Market leasing summary \u2014 profile comparison",
+      "source": "Market Leasing!B4:D13",
+      "stub": "",
+      "meta_lines": [
+        "Mesa Ridge Industrial Park  \u00b7  amounts in USD, measures in SF",
+        "As of Jan-2026"
+      ],
+      "periods": [
+        "Warehouse Profile",
+        "Flex Profile"
+      ],
+      "value_kind": "number",
+      "groups": [
+        {
+          "label": "Term",
+          "rows": [
+            {
+              "label": "Term length (years)",
+              "values": [
+                5,
+                5
+              ],
+              "decimals": 0
+            },
+            {
+              "label": "Renewal probability",
+              "values": [
+                0.75,
+                0.75
+              ],
+              "value_kind": "percent",
+              "decimals": 1
+            },
+            {
+              "label": "Months vacant",
+              "values": [
+                6,
+                6
+              ],
+              "decimals": 0
+            },
+            {
+              "label": "Months vacant (blended)",
+              "values": [
+                1.5,
+                1.5
+              ],
+              "decimals": 0
+            }
+          ]
+        },
+        {
+          "label": "Market base rent ($/SF/year)",
+          "rows": [
+            {
+              "label": "New",
+              "values": [
+                22.0,
+                16.0
+              ],
+              "value_kind": "currency"
+            },
+            {
+              "label": "Renewal",
+              "values": [
+                20.0,
+                16.0
+              ],
+              "value_kind": "currency"
+            },
+            {
+              "label": "Blended",
+              "values": [
+                20.5,
+                16.0
+              ],
+              "value_kind": "currency",
+              "kind": "sub"
+            }
+          ]
+        },
+        {
+          "label": "Rent increases",
+          "rows": [
+            {
+              "label": "Fixed steps",
+              "values": [
+                "None",
+                "None"
+              ]
+            },
+            {
+              "label": "CPI increase",
+              "values": [
+                "None",
+                "None"
+              ]
+            },
+            {
+              "label": "Market rental value",
+              "values": [
+                "Continue Prior",
+                "Continue Prior"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Tenant improvements ($/area)",
+          "rows": [
+            {
+              "label": "New",
+              "values": [
+                15.0,
+                8.0
+              ],
+              "value_kind": "currency"
+            },
+            {
+              "label": "Renewal",
+              "values": [
+                5.0,
+                0.0
+              ],
+              "value_kind": "currency"
+            },
+            {
+              "label": "Blended",
+              "values": [
+                7.5,
+                2.0
+              ],
+              "value_kind": "currency",
+              "kind": "sub"
+            }
+          ]
+        },
+        {
+          "label": "Leasing commissions",
+          "rows": [
+            {
+              "label": "New",
+              "values": [
+                0.05,
+                0.05
+              ],
+              "value_kind": "percent",
+              "decimals": 1
+            },
+            {
+              "label": "Renewal",
+              "values": [
+                0.025,
+                0.025
+              ],
+              "value_kind": "percent",
+              "decimals": 1
+            },
+            {
+              "label": "Blended",
+              "values": [
+                0.0313,
+                0.0313
+              ],
+              "value_kind": "percent",
+              "kind": "sub",
+              "decimals": 1
+            }
+          ]
+        },
+        {
+          "label": "Other",
+          "rows": [
+            {
+              "label": "Recovery type",
+              "values": [
+                "Base Year Stop",
+                "Net"
+              ]
+            },
+            {
+              "label": "Upon expiration",
+              "values": [
+                "Warehouse Profile",
+                "Flex Profile"
+              ]
+            }
+          ]
+        }
+      ],
+      "note": "Flex Profile (2) applies to the Unit 400 flex space; all other units run Warehouse Profile (1).",
+      "decimals": 2
+    },
+    {
+      "id": "C",
+      "title": "Projected property operating statement, Years 1\u20133",
+      "source": "Property P&L!B4:E13",
+      "columns": [
+        "Line item",
+        "Year 1",
+        "Year 2",
+        "Year 3"
+      ],
+      "column_kinds": [
+        "text",
+        "currency",
+        "currency",
+        "currency"
+      ],
+      "total_rows": [
+        2,
+        7,
+        8
+      ],
+      "rows": [
+        [
+          "Base rental revenue",
+          3150000,
+          3480000,
+          3720000
+        ],
+        [
+          "Expense reimbursements",
+          620000,
+          690000,
+          745000
+        ],
+        [
+          "Total revenue",
+          3770000,
+          4170000,
+          4465000
+        ],
+        [
+          "Property taxes",
+          410000,
+          425000,
+          440000
+        ],
+        [
+          "Insurance",
+          132000,
+          138000,
+          145000
+        ],
+        [
+          "Repairs and maintenance",
+          218000,
+          205000,
+          198000
+        ],
+        [
+          "Management fee",
+          148000,
+          163000,
+          174000
+        ],
+        [
+          "Total operating expenses",
+          908000,
+          931000,
+          957000
+        ],
+        [
+          "Net operating income",
+          2862000,
+          3239000,
+          3508000
+        ]
+      ],
+      "note": "As computed on the Property P&L tab. See the reconciliation note below regarding stabilized NOI."
+    },
+    {
+      "id": "D",
+      "title": "Stabilized NOI sensitivity",
+      "source": "Scenarios!B4:E7",
+      "columns": [
+        "Scenario",
+        "Revenue",
+        "NOI",
+        "Payback (mo)"
+      ],
+      "column_kinds": [
+        "text",
+        "currency",
+        "currency",
+        "number"
+      ],
+      "rows": [
+        [
+          "Downside",
+          3980000,
+          2910000,
+          48
+        ],
+        [
+          "Base",
+          4465000,
+          3402000,
+          31
+        ],
+        [
+          "Upside",
+          4760000,
+          3735000,
+          24
+        ]
+      ],
+      "chart": {
+        "label_col": 0,
+        "value_col": 2
+      }
+    },
+    {
+      "id": "E",
+      "type": "schedule",
+      "title": "Tenant cash flow \u2014 Vantor Logistics, Unit 300, monthly",
+      "source": "Tenant CF!B4:O10",
+      "stub": "For the months",
+      "total_label": "Total",
+      "meta_lines": [
+        "Mesa Ridge Industrial Park  \u00b7  amounts in USD",
+        "Forecast data only  \u00b7  lease commences Mar-2026"
+      ],
+      "periods": [
+        "Jan-26",
+        "Feb-26",
+        "Mar-26",
+        "Apr-26",
+        "May-26",
+        "Jun-26",
+        "Jul-26",
+        "Aug-26",
+        "Sep-26",
+        "Oct-26",
+        "Nov-26",
+        "Dec-26"
+      ],
+      "groups": [
+        {
+          "label": "Rental revenue",
+          "rows": [
+            {
+              "label": "Base rent",
+              "values": [
+                0,
+                0,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458
+              ],
+              "total": 114583,
+              "kind": "detail"
+            },
+            {
+              "label": "Free rent",
+              "values": [
+                0,
+                0,
+                -11458,
+                -11458,
+                -11458,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "total": -34375,
+              "kind": "detail"
+            },
+            {
+              "label": "Total rental revenue",
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458,
+                11458
+              ],
+              "total": 80208,
+              "kind": "sub"
+            }
+          ]
+        },
+        {
+          "label": "Other tenant income",
+          "rows": [
+            {
+              "label": "Recoveries",
+              "values": [
+                0,
+                0,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833
+              ],
+              "total": 8333,
+              "kind": "detail"
+            },
+            {
+              "label": "Total other tenant income",
+              "values": [
+                0,
+                0,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833,
+                833
+              ],
+              "total": 8333,
+              "kind": "sub"
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "label": "Tenant net operating income",
+              "values": [
+                0,
+                0,
+                833,
+                833,
+                833,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292
+              ],
+              "total": 88942,
+              "kind": "net"
+            }
+          ]
+        },
+        {
+          "label": "Leasing costs",
+          "rows": [
+            {
+              "label": "Tenant improvements",
+              "values": [
+                0,
+                0,
+                -93750,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "total": -93750,
+              "kind": "detail"
+            },
+            {
+              "label": "Leasing commissions",
+              "values": [
+                0,
+                0,
+                -54656,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "total": -54656,
+              "kind": "detail"
+            },
+            {
+              "label": "Total leasing costs",
+              "values": [
+                0,
+                0,
+                -148406,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "total": -148406,
+              "kind": "sub"
+            }
+          ]
+        },
+        {
+          "rows": [
+            {
+              "label": "Net tenant cash flow",
+              "values": [
+                0,
+                0,
+                -147573,
+                833,
+                833,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292,
+                12292
+              ],
+              "total": -59865,
+              "kind": "net"
+            },
+            {
+              "kind": "spacer"
+            },
+            {
+              "label": "Present value",
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                -54422
+              ],
+              "total": -54422,
+              "kind": "detail"
+            }
+          ]
+        },
+        {
+          "label": "Tenant details",
+          "rows": [
+            {
+              "label": "Potential market rent per SF",
+              "values": [
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71,
+                1.71
+              ],
+              "total": 20.5,
+              "kind": "dtl",
+              "value_kind": "currency",
+              "decimals": 2
+            },
+            {
+              "label": "Scheduled base rent per SF",
+              "values": [
+                0,
+                0,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83,
+                1.83
+              ],
+              "total": 12.83,
+              "kind": "dtl",
+              "value_kind": "currency",
+              "decimals": 2
+            },
+            {
+              "label": "Average occupancy (SF)",
+              "values": [
+                0,
+                0,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250,
+                6250
+              ],
+              "total": 5208,
+              "kind": "dtl"
+            }
+          ]
+        }
+      ],
+      "note": "Results displayed are based on forecast data only."
+    }
+  ],
+  "reconciliation": [
+    {
+      "issue": "Stabilized NOI does not agree across tabs",
+      "detail": "The Summary and Scenarios tabs both carry [[noi_stab]], while the Property P&L computes [[noi_pl_y3]] in Year 3. The payback, cap rate and IRR stated in this memo derive from the Summary figure, which is the more conservative of the two. The P&L expense lines should be reconciled to the scenario model before this package goes to the lender."
+    }
+  ],
+  "risks": [
+    {
+      "risk": "Lease-up runs slower than plan and stabilized occupancy arrives a year late.",
+      "response": "The downside case already prices this: payback extends to [[down_pb]] months while coverage stays above covenant. A month-nine occupancy gate triggers a hold on rents rather than a discount."
+    },
+    {
+      "risk": "The Year 2 reassessment lands above the modeled property tax line.",
+      "response": "Taxes are the single largest expense line and are modeled at the assessor's published schedule. A reassessment materially above it would move NOI, and is the one variable worth a contingency reserve."
+    },
+    {
+      "risk": "Construction overruns the approved budget.",
+      "response": "Draw is staged against three milestones with a fixed-price general contract. No funds release before the guaranteed maximum price is executed."
+    }
+  ],
+  "attest": [
+    {
+      "name": "Asset Management",
+      "role": "Prepared by",
+      "date": "2026-08-05"
+    },
+    {
+      "name": "Investment Committee",
+      "role": "Approved by",
+      "date": ""
+    }
+  ]
+}

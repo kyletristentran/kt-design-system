@@ -233,3 +233,131 @@ body {
 .kt-credential__title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; margin: 0; }
 .kt-credential__number { font-family: var(--font-mono); font-size: 13px; color: var(--accent-deep); margin-top: var(--space-2); }
 .kt-credential__detail { font-size: 12.5px; color: var(--ink-muted); margin-top: var(--space-1); }
+
+/* ============================================================
+   Documents — corporate memorandum (kt-corporate-memo register)
+   Paper is always light, so .kt-paper re-declares the light values of the
+   tokens it uses; a memo previewed in the dark theme still reads as paper.
+   Print sizes are in pt, matching memo/memo.css in the repository.
+   ============================================================ */
+.kt-paper {
+  color-scheme: light;
+  --surface: #ffffff; --surface-raised: #fafafa; --surface-fill: #f5f5f5;
+  --ink: #242424; --ink-secondary: #424242; --ink-muted: #616161; --ink-label: #707070;
+  --rule: #e0e0e0; --rule-strong: #d1d1d1; --rule-divider: #242424;
+  --accent: #b6d0e2; --accent-line: #6b97b8; --accent-deep: #3e6a8a;
+  --positive-text: #0e700e; --caution: #a16e00; --caution-text: #6e5a00; --negative: #b10e1c;
+  --table-head: #242424; --table-head-text: #ffffff; --viz-1: #6b97b8;
+  background: var(--surface); color: var(--ink);
+  font-family: var(--font-sans); font-size: 10pt; line-height: 1.45;
+  padding: 18pt 22pt; max-width: 612pt; box-sizing: border-box;
+  box-shadow: 0 0 0 1px var(--rule);
+}
+.kt-paper p { margin: 0 0 6pt; }
+.kt-paper .kt-mark { width: 26pt; height: 26pt; font-size: 11pt; }
+.kt-eyebrow { font-size: 8.5pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-label); }
+.kt-fig { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* page frame: band and footer repeat on every page */
+.kt-band { background: var(--table-head); color: var(--table-head-text); height: 26pt; line-height: 26pt; text-align: center; font-size: 8.5pt; letter-spacing: 1.3px; margin: -18pt -22pt 14pt; }
+.kt-footer { display: flex; justify-content: space-between; border-top: 1px solid var(--rule); padding-top: 4pt; margin-top: 14pt; font-size: 8.5pt; color: var(--ink-label); }
+
+/* classification bar, letterhead, title, meta grid */
+.kt-classbar { border-top: 2pt solid var(--ink); border-bottom: 1px solid var(--ink); padding: 3pt 0; margin: 0 0 9pt; text-align: center; font-size: 8.5pt; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+.kt-letterhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 12pt; margin: 0 0 6pt; }
+.kt-letterhead .kt-wordmark { font-size: 15pt; }
+.kt-letterhead__addr { text-align: right; font-size: 8.5pt; color: var(--ink-label); line-height: 1.5; }
+.kt-rule-accent { height: 3pt; background: var(--accent-line); border: 0; margin: 0 0 9pt; }
+.kt-memo-title { font-size: 15pt; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; margin: 3pt 0 9pt; }
+.kt-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 14pt; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 6pt 0; }
+.kt-meta__k { display: block; font-size: 8.5pt; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-label); margin-bottom: 2pt; }
+.kt-meta__v { font-size: 9.5pt; }
+.kt-meta__v--mono { font-family: var(--font-mono); }
+
+/* bottom line, KPI tiles, decision block */
+.kt-bluf { border-left: 3pt solid var(--accent-line); padding: 1pt 12pt; }
+.kt-bluf p { font-size: 11pt; line-height: 1.4; margin: 3pt 0 0; }
+.kt-tiles { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 14pt; }
+.kt-tile { border-top: 2pt solid var(--ink); padding-top: 6pt; }
+.kt-tile__v { display: block; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 13.5pt; font-weight: 700; line-height: 1.15; }
+.kt-tile__l { display: block; margin-top: 3pt; font-size: 8.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-label); }
+.kt-ask { border: 1px solid var(--rule-strong); border-left: 3pt solid var(--accent-line); padding: 6pt 9pt; }
+.kt-ask .kt-eyebrow { color: var(--accent-deep); }
+.kt-ask p { margin: 3pt 0 6pt; }
+.kt-ask dl { display: grid; grid-template-columns: auto 1fr; gap: 2pt 12pt; margin: 0; }
+.kt-ask dt { font-size: 8.5pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-label); padding-top: 1.5pt; }
+.kt-ask dd { margin: 0; font-size: 9.5pt; }
+
+/* numbered, hairline-ruled section head */
+.kt-memo-section { font-size: 11pt; font-weight: 700; margin: 0 0 6pt; padding-bottom: 4pt; border-bottom: 1px solid var(--rule); }
+.kt-memo-section__n { margin-right: 8pt; }
+
+/* exhibit: caption, data table, bar chart */
+.kt-exhibit { break-inside: avoid; }
+.kt-exhibit__cap { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; margin-bottom: 6pt; }
+.kt-exhibit__t { font-size: 9.5pt; font-weight: 700; }
+.kt-exhibit__id { color: var(--accent-deep); }
+.kt-exhibit__src, .kt-src-mono { font-family: var(--font-mono); font-size: 8.5pt; color: var(--ink-label); }
+.kt-exhibit__note { font-size: 8.5pt; color: var(--ink-label); margin-top: 5pt; }
+.kt-data { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 9.5pt; }
+.kt-data th:first-child, .kt-data td:first-child { width: 34%; }
+.kt-data th { background: var(--table-head); color: var(--table-head-text); font-size: 8.5pt; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-align: left; padding: 4pt 7pt; }
+.kt-data td { padding: 3.4pt 7pt; vertical-align: top; }
+.kt-data .n { font-family: var(--font-mono); font-variant-numeric: tabular-nums; text-align: right; }
+.kt-data th.n { font-family: var(--font-sans); }
+.kt-data tbody tr:nth-child(even) td { background: var(--surface-raised); }
+.kt-data tr.total td { font-weight: 600; background: var(--surface-fill); border-top: 2pt solid var(--rule-divider); }
+.kt-data td.neg, .kt-sched td.neg { color: var(--negative); }
+.kt-bars { margin-top: 9pt; border-left: 1px solid var(--ink); }
+.kt-bars__row { display: grid; grid-template-columns: 90pt 1fr 60pt; align-items: center; gap: 9pt; margin-bottom: 4pt; }
+.kt-bars__lab { font-size: 8.5pt; color: var(--ink-secondary); text-align: right; }
+.kt-bars__track { height: 10pt; }
+.kt-bars__fill { background: var(--viz-1); height: 100%; }
+.kt-bars__val { font-family: var(--font-mono); font-size: 8.5pt; }
+
+/* schedule: the ARGUS report shape */
+.kt-sched { width: 100%; table-layout: fixed; border-collapse: collapse; font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 8.5pt; }
+.kt-sched th { background: var(--table-head); color: var(--table-head-text); font-family: var(--font-sans); font-size: 8.5pt; font-weight: 700; padding: 3.5pt 4pt; text-align: right; white-space: nowrap; }
+.kt-sched th.lab { text-align: left; width: 128pt; }
+.kt-sched td { padding: 2.3pt 4pt; text-align: right; white-space: nowrap; }
+.kt-sched td.lab { text-align: left; font-family: var(--font-sans); font-size: 9pt; }
+.kt-sched .tot { border-left: 1px solid var(--rule); font-weight: 700; }
+.kt-sched tr.grp td { font-family: var(--font-sans); font-weight: 700; padding-top: 6pt; }
+.kt-sched tr.detail td.lab { padding-left: 14pt; color: var(--ink-secondary); }
+.kt-sched tr.zebra td { background: var(--surface-raised); }
+.kt-sched tr.sub td { border-top: 1px solid var(--rule-strong); font-weight: 600; }
+.kt-sched tr.sub td.lab { padding-left: 14pt; }
+.kt-sched tr.net td { border-top: 1.4pt solid var(--ink); border-bottom: 1.4pt solid var(--ink); font-weight: 700; background: var(--surface-fill); }
+.kt-sched-lines { font-family: var(--font-mono); font-size: 8.5pt; color: var(--ink-label); margin: 2pt 0 5pt; }
+.kt-sched-note { font-size: 8.5pt; font-style: italic; color: var(--ink-label); margin-top: 4pt; }
+
+/* reconciliation callout: caution as border and label only */
+.kt-recon { border: 1px solid var(--caution); border-left: 3pt solid var(--caution); padding: 6pt 9pt; background: var(--surface); }
+.kt-recon .kt-eyebrow { color: var(--caution-text); }
+.kt-recon ul { margin: 3pt 0 0; padding-left: 15pt; }
+.kt-recon li { font-size: 9.5pt; margin-bottom: 4pt; }
+.kt-recon li::marker { color: var(--caution); }
+
+/* risks and responses */
+.kt-risks { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+.kt-risks th { font-size: 8.5pt; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-label); text-align: left; padding: 5pt 12pt 5pt 0; border-bottom: 1px solid var(--rule-strong); }
+.kt-risks td { width: 50%; padding: 5pt 12pt 5pt 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+
+/* attestation */
+.kt-attest { border-top: 1px solid var(--rule-strong); padding-top: 6pt; }
+.kt-attest__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13pt; margin-top: 6pt; }
+.kt-attest__sig { border-bottom: 1px solid var(--ink); height: 26pt; }
+.kt-attest__nm { font-size: 9.5pt; font-weight: 600; margin-top: 3pt; }
+.kt-attest__cap { font-size: 8.5pt; color: var(--ink-label); }
+
+/* trace index */
+.kt-trace { width: 100%; border-collapse: collapse; font-size: 9pt; }
+.kt-trace th { background: var(--table-head); color: var(--table-head-text); font-size: 8.5pt; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; text-align: left; padding: 4pt 7pt; }
+.kt-trace td { padding: 2.8pt 7pt; }
+.kt-trace tbody tr:nth-child(even) td { background: var(--surface-raised); }
+.kt-trace td.k { font-family: var(--font-mono); font-weight: 700; color: var(--accent-deep); width: 24pt; }
+.kt-trace td.c, .kt-trace td.v { font-family: var(--font-mono); white-space: nowrap; }
+.kt-trace td.v, .kt-trace th.v { text-align: right; }
+
+/* tables do not always inherit color (quirks-mode hosts); set it on each */
+.kt-table, .kt-data, .kt-sched, .kt-risks, .kt-trace { color: var(--ink); }

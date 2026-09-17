@@ -45,7 +45,7 @@ The dark theme is for interfaces inside a dark host, such as Claude desktop in d
 ## Type
 
 - Three families. `serif` (Crimson Text) sets the hero and section titles on kyletran.dev: `hero-title`, `section-title`, `section-title-sm`, and card titles. `sans` (Open Sans) sets everything else. `mono` (the Consolas stack) sets figures.
-- Crimson Text and Open Sans load from Google Fonts: `https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap`.
+- Open Sans (400, 400 italic, 600, 700) and Inconsolata (400, 700) ship with this system as files under the SIL Open Font License, so PDF and CI renders match. Crimson Text, and Open Sans 500 for the nav, load from Google Fonts: `https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap`.
 - Office files (Word, Excel, PowerPoint, Outlook) use Segoe UI and Consolas, which ship with Office. The `sans` stack falls back to Segoe UI for the same reason.
 - Interface body is `body` (14px); long-form reading on kyletran.dev is `body-lg` (16px). `small` sets table cells. Nothing smaller than `micro` (9px), which is the print floor.
 - All currency, percentages and dates use tabular numerals. Never mix sans and mono within one number column.
@@ -76,6 +76,23 @@ The dark theme is for interfaces inside a dark host, such as Claude desktop in d
 
 - Tables and Excel: `table-head` ink header with white labels, `surface-raised` zebra, `table-hover`, a 2px `rule-divider` above totals, frozen header row, `accent-wash` on input cells.
 - Charts: one baseline, no gridlines, no gradients, no 3D; series in `viz` order.
-- Documents: US Letter, 0.75in margins, 11pt body, 9pt floor. An `accent-line` rule under the letterhead on page one, `rule-strong` on continuation pages, and a footer with confidentiality and page N of M. File names follow `{PREFIX}_{REF}_{PERIOD}_v{N}.pdf`.
+- Documents other than memos: US Letter, 0.75in margins, 11pt body, 9pt floor. An `accent-line` rule under the letterhead on page one, `rule-strong` on continuation pages, and a footer with confidentiality and page N of M. File names follow `{PREFIX}_{REF}_{PERIOD}_v{N}.pdf`.
 - Slides: 16:9, `ink` or white backgrounds only, `accent` fields with `on-accent` type only on section breaks. 24px minimum and 30px body at 1920 by 1080. Each headline states a finding, each data slide names its source, and no table runs past eight rows.
 - Email: 600px, every style inlined, nested tables, no images, scripts or web fonts. Body 15px on 25px. The button is `on-accent` on `accent`; accent label text is `accent-deep` on `accent-wash`. Include a hidden preheader under 85 characters, the postal address and an unsubscribe link.
+
+## Memoranda
+
+Decision memos built from a workbook (capital requests, investment committee packages, variance explanations, close packages) follow the corporate-legal register below. The pipeline that produces them lives in `memo/` in the repository.
+
+- No figure is typed into prose. Prose references `[[token]]` entries, each bound to a `Sheet!Cell`; `verify_memo.py` reopens the workbook and fails the build when a value no longer matches.
+- Order on page one: PageFrame band, MemoHeader (classification bar, letterhead, `accent-line` rule, document class, title, meta grid), BottomLine (BLUF of 45 words or fewer, up to four KPI tiles, decision requested), then numbered MemoSection blocks, each defending one of three supports with an Exhibit.
+- Close with the Reconciliation callout when tabs disagree, the risks table, the Attestation block and the trace index on its own page. No Conclusion section.
+- Paper is always light. The accent budget is four marks, all in `accent-line`: the letterhead rule, the BLUF rule, the decision-block rule and the bar fill. Exhibit letters and trace keys use `accent-deep`. The mark underscore sits on ink and keeps `accent`.
+- Type runs in the Memo (print) styles: `memo-body` 10pt, `memo-small` 9.5pt in tables, `memo-label` and `memo-figure` 8.5pt. Figures never go below 8.5pt; buy density from padding and leading instead.
+- In a sentence, a bound figure keeps the body face at weight 600. Tables, tiles, meta values and the trace index set figures in mono.
+- Negatives print in parentheses and in `negative`, so the sign survives greyscale. Reconciliation uses `caution` for border and label only.
+- Exhibit letters ascend in citation order. An exhibit never splits across a page. Chart only rows that share a unit.
+- Schedules with more than eight columns take a landscape page; four or fewer narrow to 74% width.
+- When two tabs disagree, use the more conservative figure, say which, and list the conflict in the Reconciliation callout.
+- Render, then read every page and run the greyscale test before sending. File names follow `{PREFIX}_{REF}_{PERIOD}_v{N}.pdf`.
+- Samples use the KTFORD identity with invented industrial properties only, labeled FICTITIOUS DATA.
