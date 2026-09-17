@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KT Design System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/kt.css">
+<style>
+  body { background: var(--surface-page); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 64px; }
+  .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .coverbox { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); margin-bottom: 26px; }
+  .demo { background: var(--surface); border: 1px solid var(--rule); padding: 22px; margin-bottom: 26px; }
+  .p { padding: 16px 0 0; display: flex; flex-direction: column; gap: 16px; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .doc { font-size: 12.5px; margin: 12px 0 0; }
+  .doc a { color: var(--accent-deep); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; padding-top: 16px; }
+  .sw { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+  .sw span { width: 28px; height: 28px; border: 1px solid var(--rule); flex: none; }
+  .sw code { font-family: var(--font-mono); color: var(--ink-secondary); overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span class="kt-lockup"><span class="kt-mark">KT</span><span class="kt-wordmark">Design System</span></span>
+    <button class="kt-btn kt-btn--secondary kt-btn--sm" id="theme">Toggle theme</button>
+  </div>
+  <div class="coverbox"><style>
+  body { margin: 0; background: var(--surface); }
+  .cover { position: relative; width: 960px; height: 288px; overflow: hidden; background: var(--surface); }
+  .cover svg { position: absolute; inset: 0; }
+  .b-ink { fill: var(--ink); }
+  .b-accent { fill: var(--accent); }
+  .b-navy { fill: var(--viz-2); }
+  .b-line { fill: var(--accent-line); }
+  .cut { stroke: var(--surface); stroke-width: var(--stroke-hairline); }
+  .text { position: absolute; left: 40px; bottom: 40px; max-width: 440px; }
+  .name { font-family: var(--font-serif); font-weight: 700; font-size: 84px; line-height: .95; color: var(--ink); margin: 0; }
+  .tag { font-family: var(--font-sans); font-size: 13px; line-height: 1.45; color: var(--ink-muted); margin: 12px 0 0; }
+</style>
+<div class="cover">
+  <!--
+    blocks: ink 184x196 and viz-2 92x92, accent 204x288 bleeding top/bottom/right, accent-line 46x46 satellite; all on the 46px space-8 pitch
+    arrangement: flush modular grid, one tall accent slab at the right edge with an ink slab and navy tile beside it
+    pattern: editorial row (serif titles, "structure comes from rules, not boxes") -> four hairline cuts of the ground through the blocks
+    scales: space-8 (46px) pitch, stroke-hairline (1px), radius-none (square system)
+  -->
+  <svg width="960" height="288" viewBox="0 0 960 288" aria-hidden="true">
+    <rect class="b-ink" x="572" y="0" width="184" height="196"/>
+    <rect class="b-navy" x="664" y="196" width="92" height="92"/>
+    <rect class="b-accent" x="756" y="0" width="204" height="288"/>
+    <rect class="b-line" x="504" y="150" width="46" height="46"/>
+    <line class="cut" x1="572" y1="46" x2="960" y2="46"/>
+    <line class="cut" x1="572" y1="92" x2="960" y2="92"/>
+    <line class="cut" x1="572" y1="138" x2="960" y2="138"/>
+    <line class="cut" x1="848" y1="0" x2="848" y2="288"/>
+  </svg>
+  <div class="text">
+    <h1 class="name">KT Design<br>System</h1>
+    <p class="tag">Tokens and components for kyletran.dev, internal tools and CRE deliverables.</p>
+  </div>
+</div>
+</div>
+  <section class="demo" id="color"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Color tokens</span></div><div class="grid"><div class="sw"><span style="background:var(--surface)"></span><code>surface</code></div><div class="sw"><span style="background:var(--surface-page)"></span><code>surface-page</code></div><div class="sw"><span style="background:var(--surface-raised)"></span><code>surface-raised</code></div><div class="sw"><span style="background:var(--surface-fill)"></span><code>surface-fill</code></div><div class="sw"><span style="background:var(--band)"></span><code>band</code></div><div class="sw"><span style="background:var(--on-band)"></span><code>on-band</code></div><div class="sw"><span style="background:var(--ink)"></span><code>ink</code></div><div class="sw"><span style="background:var(--ink-secondary)"></span><code>ink-secondary</code></div><div class="sw"><span style="background:var(--ink-muted)"></span><code>ink-muted</code></div><div class="sw"><span style="background:var(--ink-label)"></span><code>ink-label</code></div><div class="sw"><span style="background:var(--ink-disabled)"></span><code>ink-disabled</code></div><div class="sw"><span style="background:var(--rule)"></span><code>rule</code></div><div class="sw"><span style="background:var(--rule-strong)"></span><code>rule-strong</code></div><div class="sw"><span style="background:var(--rule-divider)"></span><code>rule-divider</code></div><div class="sw"><span style="background:var(--accent)"></span><code>accent</code></div><div class="sw"><span style="background:var(--accent-hover)"></span><code>accent-hover</code></div><div class="sw"><span style="background:var(--accent-tint)"></span><code>accent-tint</code></div><div class="sw"><span style="background:var(--accent-wash)"></span><code>accent-wash</code></div><div class="sw"><span style="background:var(--accent-deep)"></span><code>accent-deep</code></div><div class="sw"><span style="background:var(--accent-line)"></span><code>accent-line</code></div><div class="sw"><span style="background:var(--on-accent)"></span><code>on-accent</code></div><div class="sw"><span style="background:var(--focus)"></span><code>focus</code></div><div class="sw"><span style="background:var(--positive)"></span><code>positive</code></div><div class="sw"><span style="background:var(--positive-text)"></span><code>positive-text</code></div><div class="sw"><span style="background:var(--positive-bg)"></span><code>positive-bg</code></div><div class="sw"><span style="background:var(--positive-border)"></span><code>positive-border</code></div><div class="sw"><span style="background:var(--caution)"></span><code>caution</code></div><div class="sw"><span style="background:var(--caution-text)"></span><code>caution-text</code></div><div class="sw"><span style="background:var(--caution-bg)"></span><code>caution-bg</code></div><div class="sw"><span style="background:var(--caution-border)"></span><code>caution-border</code></div><div class="sw"><span style="background:var(--negative)"></span><code>negative</code></div><div class="sw"><span style="background:var(--negative-hover)"></span><code>negative-hover</code></div><div class="sw"><span style="background:var(--on-negative)"></span><code>on-negative</code></div><div class="sw"><span style="background:var(--negative-text)"></span><code>negative-text</code></div><div class="sw"><span style="background:var(--negative-bg)"></span><code>negative-bg</code></div><div class="sw"><span style="background:var(--negative-border)"></span><code>negative-border</code></div><div class="sw"><span style="background:var(--table-head)"></span><code>table-head</code></div><div class="sw"><span style="background:var(--table-head-text)"></span><code>table-head-text</code></div><div class="sw"><span style="background:var(--table-hover)"></span><code>table-hover</code></div><div class="sw"><span style="background:var(--viz-1)"></span><code>viz-1</code></div><div class="sw"><span style="background:var(--viz-2)"></span><code>viz-2</code></div><div class="sw"><span style="background:var(--viz-3)"></span><code>viz-3</code></div><div class="sw"><span style="background:var(--viz-4)"></span><code>viz-4</code></div><div class="sw"><span style="background:var(--viz-5)"></span><code>viz-5</code></div><div class="sw"><span style="background:var(--viz-6)"></span><code>viz-6</code></div></div></section>
+  <section class="demo" id="Mark"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Mark</span></div>
+<div class="p"><div class="p"><div class="row" style="gap:40px">
+  <span class="kt-lockup"><span class="kt-mark">KT</span><span class="kt-wordmark">Kyle Tran</span></span>
+  <span class="kt-mark kt-mark--lg">KT</span>
+  <span style="background:var(--band);padding:20px;display:inline-flex"><span class="kt-mark kt-mark--on-band">KT</span></span>
+</div></div>
+</div>
+<p class="doc"><a href="../docs/components/Mark.md">Guidelines</a></p></section><section class="demo" id="Button"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Button</span></div>
+<div class="p"><div class="p">
+  <div class="row">
+    <button class="kt-btn">Approve budget</button>
+    <button class="kt-btn kt-btn--secondary">Export</button>
+    <button class="kt-btn kt-btn--ghost">Cancel</button>
+    <button class="kt-btn kt-btn--danger">Reject</button>
+    <button class="kt-btn" disabled>Submit</button>
+  </div>
+  <div class="row">
+    <button class="kt-btn kt-btn--sm">Save</button>
+    <button class="kt-btn kt-btn--lg kt-btn--square">View projects</button>
+    <button class="kt-btn kt-btn--secondary kt-btn--lg kt-btn--square">Resume (PDF)</button>
+  </div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Button.md">Guidelines</a></p></section><section class="demo" id="OutlineButton"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">OutlineButton</span></div>
+<div class="p"><div style="background:var(--band);padding:28px 24px;display:flex;gap:14px;flex-wrap:wrap">
+  <a class="kt-btn kt-btn--outline" href="#">Email</a>
+  <a class="kt-btn kt-btn--outline" href="#">LinkedIn</a>
+  <a class="kt-btn kt-btn--outline" href="#">GitHub</a>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/OutlineButton.md">Guidelines</a></p></section><section class="demo" id="Field"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Field</span></div>
+<div class="p"><div class="p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+  <div class="kt-field"><label for="a">Property name</label><input id="a" class="kt-input" value="Harbor Gateway 3"></div>
+  <div class="kt-field"><label for="b">Market rent (PSF)</label><input id="b" class="kt-input kt-input--numeric" value="1.42"><span class="kt-field__hint">Hand-entered input</span></div>
+  <div class="kt-field"><label for="c">Lease start</label><input id="c" class="kt-input" value="2026-13-01" aria-invalid="true"><span class="kt-field__error">Month must be 01 to 12. Use yyyy-mm-dd.</span></div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Field.md">Guidelines</a></p></section><section class="demo" id="Badge"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Badge</span></div>
+<div class="p"><div class="p"><div class="row">
+  <span class="kt-badge kt-badge--ok"><span class="kt-square kt-square--ok"></span>Approved</span>
+  <span class="kt-badge kt-badge--warn"><span class="kt-square kt-square--warn"></span>In review</span>
+  <span class="kt-badge kt-badge--bad"><span class="kt-square kt-square--bad"></span>Over budget</span>
+  <span class="kt-badge">Draft</span>
+</div></div>
+</div>
+<p class="doc"><a href="../docs/components/Badge.md">Guidelines</a></p></section><section class="demo" id="Tag"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Tag</span></div>
+<div class="p"><div class="p"><div class="row">
+  <span class="kt-tag">industrial</span><span class="kt-tag">SoCal</span><span class="kt-tag">FY26</span>
+  <span class="kt-tag kt-tag--solid">ARGUS</span><span class="kt-tag kt-tag--solid">Python</span><span class="kt-tag kt-tag--solid">SQL</span>
+</div></div>
+</div>
+<p class="doc"><a href="../docs/components/Tag.md">Guidelines</a></p></section><section class="demo" id="KPI"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">KPI</span></div>
+<div class="p"><div class="p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px">
+  <div class="kt-kpi kt-kpi--accent"><div class="kt-kpi__label">NOI, YTD</div><div class="kt-kpi__value">$4,812,300</div><div class="kt-kpi__delta"><span class="kt-up">▲ 3.4%</span> vs budget</div></div>
+  <div class="kt-kpi kt-kpi--stub"><div class="kt-kpi__label">Occupancy</div><div class="kt-kpi__value">96.4%</div><div class="kt-kpi__delta">flat QoQ</div></div>
+  <div class="kt-kpi kt-kpi--stub"><div class="kt-kpi__label">Opex per SF</div><div class="kt-kpi__value">$2.18</div><div class="kt-kpi__delta"><span class="kt-down">▼ 1.1%</span> vs prior year</div></div>
+  <div class="kt-kpi kt-kpi--alert"><div class="kt-kpi__label">Leases expiring, 90 days</div><div class="kt-kpi__value">7</div><div class="kt-kpi__delta">184,200 SF</div></div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/KPI.md">Guidelines</a></p></section><section class="demo" id="DataTable"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">DataTable</span></div>
+<div class="p"><div class="p">
+<div class="kt-table-wrap"><table class="kt-table">
+  <thead><tr><th>Suite</th><th>Tenant</th><th class="kt-num">SF</th><th class="kt-num">Rent / SF</th><th class="kt-num">Annual rent</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td class="kt-num" style="text-align:left">110</td><td>Coastline Logistics</td><td class="kt-num">42,000</td><td class="kt-num">$1.38</td><td class="kt-num">$695,520</td><td><span class="kt-badge kt-badge--ok">Current</span></td></tr>
+    <tr><td class="kt-num" style="text-align:left">120</td><td>Arroyo Packaging</td><td class="kt-num">28,500</td><td class="kt-num">$1.42</td><td class="kt-num">$485,640</td><td><span class="kt-badge kt-badge--warn">Renewal</span></td></tr>
+    <tr><td class="kt-num" style="text-align:left">130</td><td>Vacant</td><td class="kt-num">15,200</td><td class="kt-num">$0.00</td><td class="kt-num">$0</td><td><span class="kt-badge">Marketing</span></td></tr>
+  </tbody>
+  <tfoot><tr><td>Total</td><td></td><td class="kt-num">85,700</td><td class="kt-num">$1.14</td><td class="kt-num">$1,181,160</td><td></td></tr></tfoot>
+</table></div>
+<div class="kt-source">Source: FICTITIOUS DATA, rent roll as of 2026-06-30</div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/DataTable.md">Guidelines</a></p></section><section class="demo" id="Tabs"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Tabs</span></div>
+<div class="p"><div class="p">
+  <div class="kt-crumb">Portfolio / Inland Empire / <strong>Harbor Gateway 3</strong></div>
+  <div class="kt-tabs" role="tablist">
+    <button class="kt-tab" role="tab" aria-selected="true">Summary</button>
+    <button class="kt-tab" role="tab" aria-selected="false">Rent roll</button>
+    <button class="kt-tab" role="tab" aria-selected="false">Variance</button>
+    <button class="kt-tab" role="tab" aria-selected="false">Documents</button>
+  </div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Tabs.md">Guidelines</a></p></section><section class="demo" id="SiteNav"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">SiteNav</span></div>
+<div class="p"><nav class="kt-nav" aria-label="Primary"><ul>
+  <li><a href="#" aria-current="page">Overview</a></li>
+  <li><a href="#">Projects</a></li>
+  <li><a href="#">Experience</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul></nav>
+</div>
+<p class="doc"><a href="../docs/components/SiteNav.md">Guidelines</a></p></section><section class="demo" id="SectionHeading"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">SectionHeading</span></div>
+<div class="p"><div class="p">
+  <div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Lease expirations</span></div>
+  <div>
+    <h2 class="kt-title">Selected Work</h2>
+    <p class="kt-subtitle">Underwriting and market work from coursework and internships, and the systems built around it.</p>
+  </div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/SectionHeading.md">Guidelines</a></p></section><section class="demo" id="Notice"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Notice</span></div>
+<div class="p"><div class="p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+  <div class="kt-notice"><div class="kt-notice__title">Rent roll imported</div><div class="kt-notice__body">42 rows read from the June file.</div></div>
+  <div class="kt-notice kt-notice--ok"><div class="kt-notice__title"><span class="kt-square kt-square--ok"></span>Budget approved</div><div class="kt-notice__body">Posted to the ledger on 2026-07-02.</div></div>
+  <div class="kt-notice kt-notice--warn"><div class="kt-notice__title"><span class="kt-square kt-square--warn"></span>3 fields need review</div><div class="kt-notice__body">Check the flagged rows before sending for approval.</div></div>
+  <div class="kt-notice kt-notice--bad"><div class="kt-notice__title"><span class="kt-square kt-square--bad"></span>Import failed</div><div class="kt-notice__body">Column F is text. Convert it to numbers and re-upload.</div></div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Notice.md">Guidelines</a></p></section><section class="demo" id="ProjectCard"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">ProjectCard</span></div>
+<div class="p"><div class="p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px">
+  <a class="kt-project" href="#">
+    <div class="kt-project__media"></div>
+    <div class="kt-project__body">
+      <div class="kt-project__meta">USC coursework · Spring 2026</div>
+      <h3 class="kt-project__title">Mixed-use redevelopment study</h3>
+      <p class="kt-project__desc">Site plan, program and pro forma for a former industrial parcel.</p>
+      <div class="kt-project__tags"><span class="kt-tag kt-tag--solid">Underwriting</span><span class="kt-tag kt-tag--solid">ARGUS</span></div>
+      <div class="kt-project__link">View case study →</div>
+    </div>
+  </a>
+  <a class="kt-project" href="#">
+    <div class="kt-project__media"></div>
+    <div class="kt-project__body">
+      <div class="kt-project__meta">Systems · 2026</div>
+      <h3 class="kt-project__title">Portfolio reporting pipeline</h3>
+      <p class="kt-project__desc">Extraction, validation and review steps for monthly property reports.</p>
+      <div class="kt-project__tags"><span class="kt-tag kt-tag--solid">Python</span><span class="kt-tag kt-tag--solid">SQL</span></div>
+      <div class="kt-project__link">View case study →</div>
+    </div>
+  </a>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/ProjectCard.md">Guidelines</a></p></section><section class="demo" id="Spotlight"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">Spotlight</span></div>
+<div class="p"><div class="p">
+<a class="kt-spotlight" href="#">
+  <div class="kt-spotlight__media"><svg viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><g style="stroke:var(--accent);stroke-width:1;opacity:.5"><line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="100" x2="300" y2="100"/><line x1="0" y1="150" x2="300" y2="150"/><line x1="100" y1="0" x2="100" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/></g></svg></div>
+  <div class="kt-spotlight__body">
+    <div class="kt-spotlight__eyebrow"><span class="kt-spotlight__rule"></span>Featured case · Spring 2026</div>
+    <h3 class="kt-spotlight__title">Mixed-use redevelopment study</h3>
+    <p class="kt-spotlight__desc">Market analysis, program and five-year pro forma.</p>
+  </div>
+</a>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/Spotlight.md">Guidelines</a></p></section><section class="demo" id="CredentialCard"><div class="kt-section"><span class="kt-section__sq"></span><span class="kt-label">CredentialCard</span></div>
+<div class="p"><div class="p" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+  <div class="kt-credential"><h3 class="kt-credential__title">Real Estate Salesperson License</h3><div class="kt-credential__number">DRE #02235838</div><div class="kt-credential__detail">State of California</div></div>
+  <div class="kt-credential"><h3 class="kt-credential__title">ARGUS Enterprise</h3><div class="kt-credential__number">v23</div><div class="kt-credential__detail">Certified</div></div>
+  <div class="kt-credential"><h3 class="kt-credential__title">Financial Modeling</h3><div class="kt-credential__number">A.CRE</div><div class="kt-credential__detail">Certification</div></div>
+</div>
+</div>
+<p class="doc"><a href="../docs/components/CredentialCard.md">Guidelines</a></p></section>
+  <p class="kt-source">Sample figures are FICTITIOUS DATA.</p>
+</div>
+<script>
+  document.getElementById('theme').addEventListener('click', function () {
+    var r = document.documentElement;
+    var dark = r.getAttribute('data-theme') === 'dark' || (!r.hasAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    r.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>
