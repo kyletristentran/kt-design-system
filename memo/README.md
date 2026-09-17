@@ -1,6 +1,6 @@
 # Memo pipeline
 
-This folder turns an Excel workbook into a decision memo PDF in the KT Design System. Every figure in the memo is bound to the workbook cell it came from, and the build fails if a figure no longer matches its cell.
+This folder turns an Excel workbook into a decision memo PDF in the KT design system. Every figure in the memo is bound to the workbook cell it came from, and the build fails if a figure no longer matches its cell.
 
 ```
 source.xlsx --extract_workbook.py--> workbook.json --(analyst)--> memo.json

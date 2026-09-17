@@ -1,4 +1,4 @@
-# KT Design System
+# KT
 
 Design tokens, a component stylesheet and usage guidelines for [kyletran.dev](https://kyletran.dev), my internal tools and dashboards, and the commercial real estate deliverables I produce (reports, tables, decks, memos and email). It also includes a pipeline that renders decision memos from Excel workbooks.
 
